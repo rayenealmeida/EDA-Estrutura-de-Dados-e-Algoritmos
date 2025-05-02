@@ -25,7 +25,8 @@ struct Node* insert(struct Node* root , int Key, int value){
 
 int main() {
     struct Node* root = NULL;
-
+    
+    root = insert(root, 10, 100);
     root = insert(root, 5, 50);
     root = insert(root, 15, 150);
 
@@ -33,3 +34,12 @@ int main() {
 
     return 0;
 }
+
+// busca
+int search(struct Node* root, int key) {
+    if (root == NULL) return -1; // não encontrado
+    if (key == root->Key) return root->value;
+    if (key < root->Key) return search(root->left, key);
+    else return search(root->right, key);
+}
+
